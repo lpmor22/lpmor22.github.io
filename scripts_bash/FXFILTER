@@ -1,0 +1,29 @@
+#!/bin/bash
+
+if [[ -n "$MAMBA_EXE" ]]; then
+    if [[ "$MAMBA_EXE" == *"micromamba"* ]]; then
+        eval "$($MAMBA_EXE shell hook -s posix)"
+        ENV_MANAGER=micromamba
+    else
+        ENV_MANAGER=mamba
+    fi
+elif [[ -n "$CONDA_EXE" ]]; then
+    ENV_MANAGER=conda
+fi
+
+if [ "$(uname)" = "Linux" ]; then
+    UNAME_OS=$(nproc)
+elif [ "$(uname)" = "Darwin" ]; then
+    UNAME_OS=$(sysctl -n hw.ncpu)
+fi
+
+bg() {
+    LIST=$1
+    INPUT=$2
+    OUTPUT=$(basename ${INPUT%.*})
+    $ENV_MANAGER activate phy
+    seqkit grep -j $UNAME_OS -nv -f $LIST $INPUT > $OUTPUT.filt.fasta
+    seqkit grep -j $UNAME_OS -n -f $LIST $INPUT > $OUTPUT.subsampling.fasta
+}
+
+bg $1 $2 >/dev/null 2>&1 &
