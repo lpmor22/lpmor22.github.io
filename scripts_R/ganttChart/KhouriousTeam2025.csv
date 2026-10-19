@@ -1,0 +1,69 @@
+name,type,start,end,obs
+Ricardo Khouri,PI,2014.01.01,2025.06.07,None
+Laise de Moraes,M.Sc. Student,2014.11.27,2017.04.30,None
+Laise de Moraes,Ph.D. Student,2017.12.18,2024.05.03,None
+Laise de Moraes,Postdoctoral Researcher,2025.01.14,2025.06.07,None
+Valdomiro Moitinho,M.Sc. Student,2015.02.04,2018.03.23,None
+Maria da Purificação,Ph.D. Student,2015.02.04,2017.12.31,None
+Lia Barbara Arruda,Research Associate,2015.03.08,2025.06.07,None
+Cibele Orge,Undergraduate Student,2015.04.06,2017.08.02,None
+Cibele Orge,M.Sc. Student,2017.09.25,2020.10.31,None
+Lucas Campos,Undergraduate Student,2015.04.17,2017.08.02,None
+Luciane Amorim,Postdoctoral Researcher,2015.09.24,2017.07.03,None
+Luciane Amorim,Research Associate,2017.07.04,2025.06.07,None
+Camila Brito,Undergraduate Student,2016.01.01,2017.08.02,startDate
+Lucas Gentil,Undergraduate Student,2016.01.01,2017.06.30,startEndDate
+Felipe Torres,Ph.D. Student,2016.01.15,2020.05.27,None
+Marcos Braz,Ph.D. Student,2016.12.05,2025.06.07,None
+Kleverton Ribeiro,Research Associate,2017.04.05,2019.05.19,None
+Isabele Carvalho,Undergraduate Student,2017.05.30,2019.11.08,None
+Isabele Carvalho,M.Sc. Student,2020.01.01,2021.12.20,startDate
+Isabele Carvalho,Ph.D. Student,2022.07.12,2025.06.07,None
+Thaline Mabel Santos,Undergraduate Student,2017.05.30,2019.11.09,None
+Thaline Mabel Santos,M.Sc. Student,2020.01.01,2021.12.20,startDate
+Thaline Mabel Santos,Ph.D. Student,2022.01.31,2025.06.07,None
+Victoria Ribeiro,Undergraduate Student,2017.05.30,2019.11.09,None
+Laís Cambuí,M.Sc. Student,2017.12.18,2022.04.29,None
+Debora Magnavita,Ph.D. Student,2017.12.18,2025.06.07,None
+Jessica Duarte,M.Sc. Student,2018.01.01,2019.05.03,startDate
+Jessica Duarte,Ph.D. Student,2019.06.01,2025.06.07,startDate
+Raphael Borges,Undergraduate Student,2018.01.10,2020.12.10,startDate
+Raphael Borges,Ph.D. Student,2020.12.11,2025.06.07,None
+Marina Cucco,Undergraduate Student,2018.06.01,2020.06.30,startEndDate
+Marina Cucco,M.Sc. Student,2020.12.11,2023.02.02,None
+Raphaela Andrade,M.Sc. Student,2018.12.10,2022.03.08,None
+Ellen Pimentel,M.Sc. Student,2019.07.18,2022.10.05,None
+Jose Adriano Silva,Ph.D. Student,2019.07.24,2025.06.07,None
+Agatha Morais,Undergraduate Student,2019.08.01,2020.07.31,startEndDate
+Ana Carolina Lima,Undergraduate Student,2019.08.01,2022.05.30,None
+Ana Carolina Lima,M.Sc. Student,2022.12.15,2025.01.28,None
+Ana Carolina Lima,Ph.D. Student,2025.01.29,2025.06.07,None
+Joyce Silva,Undergraduate Student,2019.10.01,2022.07.22,None
+Joyce Silva,M.Sc. Student,2022.07.23,2024.09.09,None
+Joyce Silva,Ph.D. Student,2024.11.25,2025.06.07,None
+Beatriz Vasconcelos,Undergraduate Student,2019.11.12,2020.11.26,None
+Beatriz Vasconcelos,M.Sc. Student,2021.07.14,2023.05.23,None
+Beatriz Vasconcelos,Ph.D. Student,2023.06.07,2025.06.07,None
+Igor Silveira,Undergraduate Student,2019.11.11,2021.05.26,None
+Giulia Botelho,Undergraduate Student,2019.12.06,2023.10.17,None
+Ícaro Ströbel,M.Sc. Student,2019.12.02,2023.03.02,None
+Ícaro Ströbel,Ph.D. Student,2023.06.26,2025.06.07,None
+Clara Porto,Ph.D. Student,2019.12.02,2025.06.07,None
+Humberto de Oliveira,Ph.D. Student,2019.12.02,2025.06.07,None
+Jessica Lais Santos,Ph.D. Student,2020.04.01,2023.12.16,startDate
+Caio Galiano,M.Sc. Student,2020.12.11,2025.06.07,None
+Ana Paula de Souza,Ph.D. Student,2020.12.11,2025.06.07,None
+Helena Cristina Lima,Ph.D. Student,2020.12.11,2025.06.07,None
+Ana Camila,Ph.D. Student,2022.07.12,2025.06.07,None
+Sara Medina,Undergraduate Student,2022.08.01,2023.11.10,None
+Sara Medina,M.Sc. Student,2024.11.25,2025.06.07,None
+Thayná Gonzalez,Undergraduate Student,2022.09.01,2022.11.30,None
+Thayná Gonzalez,M.Sc. Student,2023.02.01,2025.02.24,None
+Thayná Gonzalez,Ph.D. Student,2025.02.25,2025.06.07,None
+Gabriel Carvalho,Undergraduate Student,2022.12.01,2024.11.06,startDate
+Gabriel Carvalho,M.Sc. Student,2024.11.25,2025.06.07,None
+Larissa Sena,Undergraduate Student,2023.10.01,2025.06.07,startDate
+Dandara Amorim,M.Sc. Student,2023.11.30,2025.06.07,None
+Amanda Chaves,Undergraduate Student,2024.04.01,2025.06.07,None
+Ana Júlia Lisboa,Undergraduate Student,2024.04.01,2025.06.07,None
+Thiago Mendonça,Postdoctoral Researcher,2024.08.10,2025.06.07,None
