@@ -1,0 +1,27 @@
+#!/bin/bash
+
+if [[ -n "$MAMBA_EXE" ]]; then
+    if [[ "$MAMBA_EXE" == *"micromamba"* ]]; then
+        eval "$($MAMBA_EXE shell hook -s posix)"
+        ENV_MANAGER=micromamba
+    else
+        ENV_MANAGER=mamba
+    fi
+elif [[ -n "$CONDA_EXE" ]]; then
+    ENV_MANAGER=conda
+fi
+
+if [ "$(uname)" = "Linux" ]; then
+    UNAME_OS=$(nproc)
+elif [ "$(uname)" = "Darwin" ]; then
+    UNAME_OS=$(sysctl -n hw.ncpu)
+fi
+
+bg() {
+    INPUT=$1
+    OUTPUT=$(basename ${INPUT%.*})
+    $ENV_MANAGER activate phy
+    seqkit fx2tab -j $(nproc) $INPUT > $OUTPUT.txt
+}
+
+bg $1 >/dev/null 2>&1 &

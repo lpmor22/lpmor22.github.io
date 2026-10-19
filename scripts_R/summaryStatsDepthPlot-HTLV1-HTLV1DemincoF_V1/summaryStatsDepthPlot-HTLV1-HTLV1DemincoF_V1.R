@@ -2,7 +2,7 @@
 # author: Laise de Moraes
 # email: laise.moraes@fiocruz.br
 # github: https://github.com/lpmor22
-# date: Oct 18, 2026
+# date: Oct 19, 2026
 # ---
 
 if (!require(pacman)) install.packages("pacman") else library(pacman)
@@ -32,17 +32,35 @@ depth <- purrr::map_dfr(input, function(f) {
 stats_pos <- depth %>% dplyr::group_by(position) %>% dplyr::summarise(
   n = dplyr::n(),
   q1 = quantile(depth, .25, na.rm = TRUE),
+  mean = mean(depth, na.rm = TRUE),
   med = median(depth, na.rm = TRUE),
   q3 = quantile(depth, .75, na.rm = TRUE),
   iqr = q3 - q1,
   lower = max(min(depth, na.rm = TRUE), q1 - 1.5 * iqr),
   upper = min(max(depth, na.rm = TRUE), q3 + 1.5 * iqr),
   .groups = "drop") %>%
-  dplyr::mutate(dplyr::across(c(q1, med, q3, lower, upper), ~ pmax(.x, .1)))
+  dplyr::mutate(dplyr::across(c(q1, mean, med, q3, lower, upper), ~ pmax(.x, .1)))
+
+p_hist <- ggplot(depth, aes(x = depth)) +
+  geom_histogram(fill = "#9AB6D1", colour = "#FFFFFF", linewidth = .2) +
+  scale_x_log10(labels = scales::comma, breaks = c(1, 10, 100, 1000, 10000)) +
+  labs(x = "", y = "Count") +
+  theme_light(base_size = 14) +
+  theme(panel.grid.minor = element_blank())
+p_dens <- ggplot(depth, aes(x = depth)) +
+  geom_density(fill = "#9AB6D1", alpha = .6, colour = "#274864", linewidth = .2) +
+  scale_x_log10(labels = scales::comma, breaks = c(1, 10, 100, 1000, 10000)) +
+  labs(x = "Depth (x)", y = "Density") +
+  theme_light(base_size = 14) +
+  theme(panel.grid.minor = element_blank())
+plot_dist <- p_hist / p_dens + plot_layout(nrow = 2)
+save_plot("distEvaluation.pdf", plot_dist, 
+          base_height = 10, base_width = 20, device = "pdf")
 
 depcov <- ggplot(stats_pos, aes(x = position)) +
   geom_ribbon(aes(ymin = lower, ymax = upper, fill = "Whiskers (1.5xIQR)"), colour = NA) +
   geom_ribbon(aes(ymin = q1, ymax = q3, fill = "Interquartile range (IQR)"), colour = NA) +
+  geom_line(aes(y = mean, colour = "Mean"), linewidth = .3, linetype = "solid") +
   geom_line(aes(y = med, colour = "Median"), linewidth = .3) +
   geom_line(aes(y = q1), colour = "#9AB6D1", linewidth = .1) +
   geom_line(aes(y = q3), colour = "#9AB6D1", linewidth = .1) +
@@ -51,9 +69,12 @@ depcov <- ggplot(stats_pos, aes(x = position)) +
   scale_fill_manual(name = NULL, values = c("Interquartile range (IQR)" = "#B9CCDF",
                                             "Whiskers (1.5xIQR)" = "#E4ECF3"),
                     limits = c("Whiskers (1.5xIQR)", "Interquartile range (IQR)")) +
-  scale_colour_manual(name = NULL, values = c("Median" = "#274864")) +
+  scale_colour_manual(name = NULL,
+                      values = c("Median" = "#274864",
+                                 "Mean"   = "#FF0000"),
+                      breaks = c("Median", "Mean")) +
   guides(fill = guide_legend(order = 1, override.aes = list(alpha = 1)),
-         colour = guide_legend(order = 2)) +
+         colour = guide_legend(order = 2, override.aes = list(linetype = c("solid", "solid")))) +
   scale_y_log10(breaks = c(1, 10, 20, 100, 1000, 10000), labels = scales::comma,
                 limits = c(1, 2000), oob = scales::squish, minor_breaks = NULL,
                 expand = expansion(mult = .002)) +
@@ -68,7 +89,7 @@ depcov <- ggplot(stats_pos, aes(x = position)) +
         panel.grid.minor.x = element_blank(),
         legend.position = "right",
         legend.title    = element_blank()) +
-  geom_hline(yintercept = 20, linetype = "dotted", colour = "#FF0000")
+  geom_hline(yintercept = 20, linetype = "dotted", colour = "#000000")
 
 map1p1 <- tribble(~"pool", ~"amplicon", ~"start", ~"end",
                   "1", "AV1 Fn1a+/b+ - AV1 R", 23, 4748)
