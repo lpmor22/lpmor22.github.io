@@ -92,7 +92,6 @@ depcov <- ggplot(stats_pos, aes(x = position)) +
         legend.title    = element_blank()) +
   geom_hline(yintercept = 10, linetype = "dotted", colour = "#FF0000")
 
-# --- MAPAS GENÔMICOS ---
 map2genome1 <- tribble(~"gene", ~"start", ~"end",
                        "5'LTR", 1, 634,
                        "gag", 790, 2292,
@@ -106,7 +105,6 @@ map2plot1 <- map2genome1 %>% ggplot() +
   scale_x_continuous(expand = expansion(0, 0), limits = c(0, 9800)) +
   theme_void() + theme(legend.position = "none") +
   coord_cartesian(clip = "off")
-
 map2genome2 <- tribble(~"gene", ~"start", ~"end",
                        "tat", 5831, 6045,
                        "vpu", 6062, 6310,
@@ -119,7 +117,6 @@ map2plot2 <- map2genome2 %>% ggplot() +
   scale_x_continuous(expand = expansion(0, 0), limits = c(0, 9800)) +
   theme_void() + theme(legend.position = "none") +
   coord_cartesian(clip = "off")
-
 map2genome3 <- tribble(~"gene", ~"start", ~"end",
                        "pol", 2085, 5096,
                        "vpr", 5559, 5850,
@@ -136,4 +133,4 @@ map2plot3 <- map2genome3 %>% ggplot() +
 plot <- depcov / map2plot1 / map2plot2 / map2plot3 +
   plot_layout(nrow = 4, heights = c(3, .3, .3, .3))
 
-save_plot("summaryStatsDepthPlot-HIV1-EnrichVSP2.pdf", plot, base_height = 7, base_width = 20)
+save_plot("summaryStatsDepthPlot-HIV1-Hyb.pdf", plot, base_height = 7, base_width = 20)
